@@ -1,0 +1,7 @@
+.dialog-wrapper button{
+    width: 50%;
+}
+
+.dialog-wrapper mat-form-field{
+    width: 100%;
+}

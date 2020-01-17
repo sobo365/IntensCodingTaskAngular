@@ -1,0 +1,15 @@
+.container-home{
+    background-color: #007aff;
+    float: top;
+    width: 100vw;
+    height: 50px;
+    color: white;
+}
+
+
+.btn{
+    float: right;
+    margin: 10px;
+    display: inline-block;
+    font-size: 30px;
+}

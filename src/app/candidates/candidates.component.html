@@ -1,0 +1,67 @@
+<div class = 'candidates-wrapper'>
+
+  <div class = 'search-wrapper'>
+    <mat-form-field class ='search-input'>
+      <mat-label>Search(Full Name, Skills)</mat-label>
+      <input (keyup)="search()" [(ngModel)]="query" name = 'search' matInput >
+    </mat-form-field>
+  </div>
+  
+  <div class = 'candidates-list'>
+
+    
+
+    <div (click)="selectCandidate(candidates.indexOf(candidate))" class = 'candidate-item' *ngFor="let candidate of candidates" style="margin-top:10px;">
+      <div class = 'img-wrapper'>
+        <i class="far fa-user"></i>
+      </div>
+      <div class = 'text-wrapper'>
+        <p class = 'primary'>{{candidate.fullName}}</p>
+        <p>{{candidate.email}}</p>
+      </div>     
+      
+            
+
+    </div>
+
+    <div (click)="addCandidate()" class = 'candidate-item-add'  style="margin-top:10px;">
+      <i class="fas fa-plus add-btn"></i>
+
+</div>
+    
+  </div>
+
+
+  <div class = 'candidate-single' >
+      <p class = 'candidate-name'>{{selectedCandidate.fullName}}</p>
+      <hr>
+      <p> <span class="title">Email: </span> {{selectedCandidate.email}}</p>
+      <hr>
+      <p> <span class="title">Date of Birth: </span> {{selectedCandidate.dateOfBirth}}</p>
+      <hr>
+      <p> <span class="title">Contact: </span> {{selectedCandidate.contactNumber}}</p>
+      
+    
+    <div class = 'skills-container'>
+      <h3>Skills</h3>
+      <div class = 'skill-tag' *ngFor="let skill of candidateSkills" style="margin-top:10px;">
+        <p>{{skill.name}}</p>
+        <i (click)="removeCandidateSkill(skill.id, candidateSkills.indexOf(skill))" id = 'tag-remove' class="fas fa-times-circle"></i>
+      </div>  
+    </div>
+      
+
+  <div class = 'actions-container'>
+    <button class = 'candidate-btn' (click)="editCandidate()" mat-button>Add Skill to Candidate</button>
+    <button class = 'candidate-btn' (click)="removeCandidate()" mat-button>Remove candidate</button>
+  </div>
+
+     
+
+  </div>
+  
+
+
+</div>
+
+
