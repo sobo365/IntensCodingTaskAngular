@@ -17,6 +17,7 @@ import { MatToolbarModule,
   MatDialogModule,
   MatInputModule,
   MatProgressSpinnerModule } from '@angular/material';
+import { SkillsComponent } from './skills/skills.component';
 
 
 
@@ -25,7 +26,8 @@ import { MatToolbarModule,
     AppComponent,
     HomeComponent,
     CandidatesComponent,
-    CandidateComponent
+    CandidateComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { MatToolbarModule,
     
   ],
   entryComponents: [
-    CandidateComponent
+    CandidateComponent,
+    SkillsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

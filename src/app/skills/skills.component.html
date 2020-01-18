@@ -1,0 +1,23 @@
+<div class = 'skills-dialog'>
+  <h3>Skills</h3>
+  <i (click) =  "closeDialog()" class="far fa-times-circle"></i>
+    <hr>
+  <div class = 'skill-list-wrapper'>
+    <div class = 'skill-item-add'  style="margin-top:10px;">
+      
+        <mat-form-field >
+          <mat-label>New Skill</mat-label>
+          <input [(ngModel)]="name" name = 'nameInput' matInput placeholder="">
+         
+        </mat-form-field>
+    
+      <button (click)="addNewSkill()"  matInput class="add-btn" mat-flat-button color="accent">Add</button>
+    </div>  
+    <div class = 'skill-item' *ngFor="let skill of skills" style="margin-top:10px;">
+      <p>{{skill.name}}</p>
+      <button (click)="addSkillToCandidate(skills.indexOf(skill))"  mat-flat-button color="primary">Add to Candidate</button>
+      <button  mat-flat-button color="accent">Delete Skill</button>
+    </div>  
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.skill-item{
+    width: 95%;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: rgba(229, 229, 234, 0.7);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.skill-item-add{
+    width: 95%;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: rgba(229, 229, 234, 0.7);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);  
+}
+
+.skill-item p{
+    color: #636366;
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.skill-item button{
+    width: 48%;
+    margin: 1%;
+}
+
+.skill-list-wrapper{
+    height: 60vh;
+    overflow: auto;
+}
+
+.skills-dialog h3{
+    display: inline-block;
+}
+
+.skills-dialog i{
+    float: right;
+    color: red;
+    font-size: 28px;
+    margin: 16px;
+}
+
+.add-btn{
+    float: right;
+    margin-top: 13px;
+    margin-right: 8px;
+}

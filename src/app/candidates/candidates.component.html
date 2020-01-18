@@ -1,9 +1,17 @@
 <div class = 'candidates-wrapper'>
 
+  <div class= 'list-wrapper'>
+
+  
   <div class = 'search-wrapper'>
     <mat-form-field class ='search-input'>
-      <mat-label>Search(Full Name, Skills)</mat-label>
-      <input (keyup)="search()" [(ngModel)]="query" name = 'search' matInput >
+      <mat-label>Search(Full Name)</mat-label>
+      <input (keyup)="searchFullName()" [(ngModel)]="queryFullName" name = 'search' matInput >
+    </mat-form-field>
+<br>
+    <mat-form-field class ='search-input'>
+      <mat-label>Search(Skills)</mat-label>
+      <input (keyup)="searchSkills()" [(ngModel)]="querySkills" name = 'searchSkills' matInput placeholder="Skill1, Skill2,..">
     </mat-form-field>
   </div>
   
@@ -30,8 +38,8 @@
 </div>
     
   </div>
-
-
+</div>
+  
   <div class = 'candidate-single' >
       <p class = 'candidate-name'>{{selectedCandidate.fullName}}</p>
       <hr>
@@ -52,7 +60,7 @@
       
 
   <div class = 'actions-container'>
-    <button class = 'candidate-btn' (click)="editCandidate()" mat-button>Add Skill to Candidate</button>
+    <button class = 'candidate-btn' (click)="addSkill()" mat-button>Add Skill to Candidate</button>
     <button class = 'candidate-btn' (click)="removeCandidate()" mat-button>Remove candidate</button>
   </div>
 

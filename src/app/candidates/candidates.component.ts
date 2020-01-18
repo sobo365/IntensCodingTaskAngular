@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule, ApplicationModule, ApplicationRef, ChangeD
 import { ApiService } from '../api.service';
 import { CandidateComponent } from '../candidate/candidate.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SkillsComponent } from '../skills/skills.component';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class CandidatesComponent implements OnInit {
   candidateSkills = [];
   selectedCandidate = 1;
   selectedPosition = 0;
-  query= '';
+  queryFullName= '';
+  querySkills='';
   
   constructor(private apiService: ApiService,
               public dialog: MatDialog) { }
@@ -31,8 +33,17 @@ export class CandidatesComponent implements OnInit {
     
   }
 
-  search(){
-    this.apiService.searchCandidates(this.query).subscribe((data: any) =>{
+  searchFullName(){
+    this.querySkills = '';
+    this.apiService.searchCandidates(this.queryFullName).subscribe((data: any) =>{
+      console.log(data);
+      this.candidates = data.candidates;
+    });
+  }
+
+  searchSkills(){
+    this.queryFullName = '';
+    this.apiService.searchCandidatesBySkills(this.querySkills).subscribe((data: any) =>{
       console.log(data);
       this.candidates = data.candidates;
     });
@@ -75,14 +86,27 @@ export class CandidatesComponent implements OnInit {
 
   addCandidate(): void {
     const dialogRef = this.dialog.open(CandidateComponent, {
-      width: '400px',
-      data: {fullName: 'rade'}
+      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.apiService.getCandidates().subscribe((data: any)=>{  
         console.log(data);  
         this.candidates = data.candidates;  
+      });
+    });
+  }
+
+  addSkill(): void{
+    const dialogRef = this.dialog.open(SkillsComponent, {
+      data: {candidateId: this.candidates[this.selectedPosition].id},
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.apiService.getCandidateSkills(this.candidates[this.selectedPosition]).subscribe((data: any)=>{  
+        console.log(data);  
+        this.candidateSkills = data.candidateSkills;  
       });
     });
   }
