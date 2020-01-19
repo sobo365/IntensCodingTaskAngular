@@ -69,7 +69,8 @@ export class CandidatesComponent implements OnInit {
       }
     );
     this.candidates.splice(this.selectedPosition,1);
-    this.selectedCandidate = -100;
+    this.selectedCandidate = 0;
+    this.candidateSkills = [];
   }
 
   removeCandidateSkill(skillId, position){

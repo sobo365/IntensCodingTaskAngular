@@ -16,7 +16,7 @@
     <div class = 'skill-item' *ngFor="let skill of skills" style="margin-top:10px;">
       <p>{{skill.name}}</p>
       <button (click)="addSkillToCandidate(skills.indexOf(skill))"  mat-flat-button color="primary">Add to Candidate</button>
-      <button  mat-flat-button color="accent">Delete Skill</button>
+      <button (click)="deleteSkill(skill.id)" mat-flat-button color="accent">Delete Skill</button>
     </div>  
 
   </div>

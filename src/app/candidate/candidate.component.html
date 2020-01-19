@@ -1,5 +1,5 @@
 <div class = 'dialog-wrapper'>
-    <form name = 'candidateForm' class="candidate-form" >
+    <form [formGroup]="candidate" name = 'candidateForm' class="candidate-form" >
 
         <h2>Add Candidate</h2>
         <hr>
@@ -8,15 +8,15 @@
         
             <mat-form-field appearance="outline">
               <mat-label>Full Name</mat-label>
-              <input required   [(ngModel)]="fullName" name = 'fullName' matInput >
+              <input required    name = 'fullName' matInput class="form-control" formControlName="fullName" >
             </mat-form-field>
-            
+           
         
         
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
-              <input required type="email" [(ngModel)]="email" name = 'emailInput' matInput placeholder="">
+              <input required type="email"  name = 'emailInput' matInput class="form-control" formControlName="email">
              
             </mat-form-field>
           </p>
@@ -24,7 +24,7 @@
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Date of Birth</mat-label>
-              <input required [(ngModel)]="dateOfBirth" name = 'birthDateInput' type="date" matInput placeholder="">
+              <input required name = 'birthDateInput' type="date" matInput class="form-control" formControlName="dateOfBirth">
             </mat-form-field>
           </p>
         
@@ -32,7 +32,7 @@
         <p>
             <mat-form-field appearance="outline">
               <mat-label>Contact Number</mat-label>
-              <input required [(ngModel)]="contact" name = 'contactInput' matInput placeholder="">
+              <input required  name = 'contactInput' matInput class="form-control" formControlName="contact">
             </mat-form-field>
           </p>
       

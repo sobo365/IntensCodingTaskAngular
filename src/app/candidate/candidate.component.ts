@@ -14,32 +14,34 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   export class CandidateComponent implements OnInit  {
     
 
-    // candidateForm = new FormGroup({
-    //   fullName: new FormControl('', Validators.required)
-    // })
-
-    fullName: any;
-    email: any;
-    dateOfBirth: any;
-    contact: any;
-
+    candidate = new FormGroup({
+      fullName: new FormControl('', Validators.required),
+      email : new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+      dateOfBirth: new FormControl('', Validators.required),
+      contact: new FormControl('', Validators.required)
+    })
+ 
     
+	
     
-    
-
     ngOnInit(){}
 
     constructor(private apiService: ApiService,public dialog: MatDialog){   }
 
     submit(){
+      if(!this.candidate.valid){
+        alert('Invalid input!')
+      }else{
+        this.apiService.addCandidate(this.candidate.get('fullName').value, this.candidate.get('email').value, this.candidate.get('dateOfBirth').value, this.candidate.get('contact').value).subscribe(
+          response => {
+            console.log(response);
+            
+          }
+        );
+        this.dialog.closeAll();
+      }
+      
 
-      this.apiService.addCandidate(this.fullName, this.email, this.dateOfBirth, this.contact).subscribe(
-        response => {
-          console.log(response);
-          
-        }
-      );
-      this.dialog.closeAll();
     }
 
     closeDialog(): void {

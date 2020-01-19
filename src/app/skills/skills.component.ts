@@ -39,9 +39,15 @@ export class SkillsComponent implements OnInit {
     this.apiService.addSkill(this.name).subscribe((data: any)=>{  
 			console.log(data);  
       this.skills = data;
-      alert(data.httpStatus);
     });
     
+  }
+
+  deleteSkill(id):void{
+    this.apiService.deleteSkill(id).subscribe((data: any)=>{
+      this.skills = data.skills;
+    });
+
   }
 
   

@@ -87,4 +87,9 @@ export class ApiService {
     return this.httpClient.post(this.SERVER_URL_CANDIDATE_SKILLS, this.candidateSkillDTO);
   }
 
+  public deleteSkill(id){
+    const url = `${this.SERVER_URL_SKILLS}/${id}`;
+    return this.httpClient.delete(url);
+  }
+
 }
